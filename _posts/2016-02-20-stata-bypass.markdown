@@ -11,3 +11,9 @@ import pandas as pd
 df = pd.read_stata('stata_data.dta')
 df.to_csv('stata_data.csv')
 {% endhighlight %}
+
+{% highlight py %}
+import pandas as pd
+df = pd.read_stata('stata_data.dta')
+df.to_csv('stata_data.csv')
+{% endhighlight %}
