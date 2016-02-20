@@ -14,3 +14,5 @@ url: "http://palpen.github.io/palpen_articles" # the base hostname & protocol fo
 
 # Build settings
 markdown: kramdown
+
+highlighter: rouge
