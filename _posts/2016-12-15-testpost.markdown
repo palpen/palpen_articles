@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Stuck with an older version of Stata?"
-date:   2016-12-14
+date:   2016-12-15
 categories: stata version bypass
 ---
 This is a test
