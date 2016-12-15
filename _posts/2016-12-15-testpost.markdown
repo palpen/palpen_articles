@@ -27,9 +27,10 @@ df.to_csv('stata_data.csv')
 Math equations
 
 $$a^2 + b^2 = c^2$$
+
 $$ \mathsf{Data = PCs} \times \mathsf{Loadings} $$
+
 \\[ \mathbf{X} = \mathbf{Z} \mathbf{P^\mathsf{T}} \\]
 
-
-
 hello inline eq \\( sin(x^2) \\)
+
