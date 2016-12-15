@@ -26,7 +26,9 @@ df.to_csv('stata_data.csv')
 
 Math equations
 
+<div>
 $$a^2 + b^2 = c^2$$
+</div>>
 
 $$ \mathsf{Data = PCs} \times \mathsf{Loadings} $$
 
