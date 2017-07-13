@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Intro to Machine Learning: Week 1
+title: Intro to Machine Learning Week 1
 ---
 
 * **Machine learning:** "the field of study that gives computers the ability to learn without being explicitly programmed". More explicitly, a computer program is said to learn from experience E with respect to some class of tasks T and some measure of performance P, IF its performance at task T (measured by P), improves with experience E.
