@@ -8,5 +8,6 @@ Week 2 covers materials on multivariate linear regressions and a tutorial on Oct
 1. Like in week 1, the multivariate linear regression is estimated using the gradient descent. This is done using the updating rule 
 
 ![useful image]({{site.url}}/img/wk2_1.png)
+<img src="{{site.url}}/img/wk2_1.png" alt="Drawing" style="width: 200px;"/>
 
 The 
