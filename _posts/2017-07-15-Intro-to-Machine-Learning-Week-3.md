@@ -9,12 +9,12 @@ Week 3 covers two topics: binary classification using logistic regression and re
 
 Here I am going to talk about the main advantages of logistic regression over linear regression when dealing with binary classification problems.
 
-It's possible to fit a linear regression model where the outcome variable is a binary (e.g. spam or not spam, malignant tumor or benign, sick or healthy). But you may not want to do this because of a couple of drawbacks. First, the fitted hypothesis resulting from the estimation of the linear regression model can give predictions that exceeds 1 or is less than zero for some values of the features. When the interpretation of the hypothesis is that it is the probability of a positive classification (say y=1 is a spam), a predicted value greater than 1 or less than zero is a little strange. But perhaps this isn't such a big deal if we, for example, make our cutoff at some value between 0 and 1 (in which case, h(theta) > 1 can be classified as a positive class).
+It's possible to fit a linear regression model where the outcome variable is a binary (e.g. spam or not spam, malignant tumor or benign, sick or healthy). But you may not want to do this because of a couple of drawbacks. First, the fitted hypothesis resulting from the estimation of the linear regression model can give predictions that exceeds 1 or less than zero for some values of the features. This doesn't make sense if we are interpreting the hypothesis as the probability of a positive classification (say y=1 is a spam). But perhaps this isn't such a big deal if we, for example, make our cutoff at some value between 0 and 1 (in which case, h(theta) > 1 can be classified as a positive class).
 
 The second drawback of the linear regression model, which makes using logistic regression more compelling for binary classification problems, is its sensitivity to outliers.
 
 <a href="{{site.url}}/img/wk3_1.png">
-<img src="{{site.url}}/img/wk3_1.png" width="300" height="250"/>
+<img src="{{site.url}}/img/wk3_1.png" width="350" height="250"/>
 </a>
 
 At the 0.5 cutoff in the figure above, the resulting decision boundary will mis-classify tumors that are malignant as benign.
