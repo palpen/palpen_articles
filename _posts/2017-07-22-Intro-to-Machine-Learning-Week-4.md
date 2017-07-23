@@ -15,7 +15,7 @@ The problem is more salient in image recognition. A black and white image is mad
 To deal with manifold and complex features, the neural networks algorithm "splits" the processing of the input features by passing them into various *activation units* organized into *layers*
 
 <a href="{{site.url}}/img/wk4_2.png">
-<img src="{{site.url}}/img/wk4_2.png" width="350" height="250"/>
+<img src="{{site.url}}/img/wk4_2.png" width="450" height="250"/>
 </a>
 
 The notation **a** inside each pink circle in layer 2 represents an activation unit in that layer. This example contains only one *hidden* layer. Neural networks can have many activation units and many hidden layers depending on the complexity of the classification problem. Each activation unit in a given layer is a sigmoid function and, therefore, ranges in value between 0 and 1.
@@ -23,7 +23,7 @@ The notation **a** inside each pink circle in layer 2 represents an activation u
 Here is the mathematical representation of the simple neural network above. g(.) is the sigmoid function.
 
 <a href="{{site.url}}/img/wk4_3.png">
-<img src="{{site.url}}/img/wk4_3.png" width="350" height="250"/>
+<img src="{{site.url}}/img/wk4_3.png" width="450" height="250"/>
 </a>
 
 The next lecture covers the estimation of the parameters in a neural network using the *backpropagation algorithm*. It is still not clear to me what role the activation units and the different layers play in the entire process. For example, what information is being passed through in each activation function in each layer (particularly in the layers following the input layer)? How do we interpret the activation unit evaluated at some training example? is it a probability?
