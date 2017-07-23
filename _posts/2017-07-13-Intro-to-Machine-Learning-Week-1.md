@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Intro to Machine Learning Week 1
+comments: true
 ---
 For week 1's post, I just define some terminologies that are new to me.
 

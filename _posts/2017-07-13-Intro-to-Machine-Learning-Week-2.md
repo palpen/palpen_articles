@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Intro to Machine Learning Week 2
+comments: true
 ---
 
 Week 2 covers materials on multivariate linear regressions and a tutorial on Octave and Matlab.

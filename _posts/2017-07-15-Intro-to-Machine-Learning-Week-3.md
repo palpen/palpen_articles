@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Intro to Machine Learning Week 3
+comments: true
 ---
 
 Week 3 covers two topics: binary classification using logistic regression and regularization (a technique that helps with addressing the problem of overfitting the data). I discuss them separately below.
