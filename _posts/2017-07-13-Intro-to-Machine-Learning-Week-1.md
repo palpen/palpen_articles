@@ -2,14 +2,6 @@
 layout: post
 title: Intro to Machine Learning Week 1
 ---
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      {{ post.excerpt }}
-    </li>
-  {% endfor %}
-</ul>
 
 * **Machine learning:** "the field of study that gives computers the ability to learn without being explicitly programmed". More explicitly, a computer program is said to learn from experience E with respect to some class of tasks T and some measure of performance P, IF its performance at task T (measured by P), improves with experience E.
     * Example: predicting house prices given room size. E: data on house prices and room size; T: predict house price given room size; P: mean deviation from observed house price given room size.
