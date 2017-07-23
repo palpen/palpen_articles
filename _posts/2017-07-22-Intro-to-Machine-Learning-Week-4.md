@@ -4,7 +4,7 @@ title: Intro to Machine Learning Week 4
 comments: true
 ---
 
-Weeks 4 of the course introduces Neural Networks, a learning algorithm modeled after the brain. I discuss the algorithm at a very high level given that the details is quite involved. I focus instead on talking about the problem it solves, an outline of its implementation, and some issues that may arise.
+Weeks 4 of the course introduces Neural Networks, a learning algorithm modeled after the brain. I discuss the algorithm at a very high level given that the details is quite involved. I focus instead on the problem it was designed to solve.
 
 <!--excerpt-->
 
@@ -19,3 +19,11 @@ To deal with manifold and complex features, the neural networks algorithm "split
 </a>
 
 The notation **a** inside each pink circle in layer 2 represents an activation unit in that layer. This example contains only one *hidden* layer. Neural networks can have many activation units and many hidden layers depending on the complexity of the classification problem. Each activation unit in a given layer is estimated using logistic regression (estimating the parameters of the sigmoid function) and ranges in value between 0 and 1.
+
+Here is the mathematical representation of the simple neural network above. g(.) is the sigmoid function.
+
+<a href="{{site.url}}/img/wk4_3.png">
+<img src="{{site.url}}/img/wk4_3.png" width="350" height="250"/>
+</a>
+
+It is still not clear to me what role the activation units and the different layers play in the entire process. What kind of information is being passed through in each activation function in each layer given layer? Particularly in the layers following the input layer. How do we interpret the activation unit evaluated at some training sample? is it a probability?
