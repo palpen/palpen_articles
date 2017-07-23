@@ -12,6 +12,9 @@ email: palermo.penano@mail.utoronto.ca
 baseurl: "/palpen_articles" # the subpath of your site, e.g. /blog
 url: "http://palpen.github.io/palpen_articles" # the base hostname & protocol for your site
 
+# excerpt separator for post excerpt
+excerpt_separator: "<!--excerpt-->"
+
 # Build settings
 markdown: kramdown
 

@@ -5,6 +5,8 @@ title: Intro to Machine Learning Week 3
 
 Week 3 covers two topics: binary classification using logistic regression and regularization (a technique that helps with addressing the problem of overfitting the data). I discuss them separately below.
 
+<!--excerpt-->
+
 ## Logistic regression
 
 Here I am going to talk about the main advantages of logistic regression over linear regression when dealing with binary classification problems.
