@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Machine Learning by Andrew Ng
+title: Intro to Machine Learning by Andrew Ng
 comments: true
 ---
 
