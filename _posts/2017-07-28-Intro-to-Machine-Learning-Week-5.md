@@ -22,12 +22,17 @@ Once the gradients of the cost function has been calculated, the gradient descen
 
 Here is a summary of the algorithm to train a neural network:
 
-1. Randomly initialize each parameter (cannot set them all to be the same to ensure symmetry breaking)
-2. Implement forward propagation to get an initial prediction of the outcome (which will have high error)
+**1.** Randomly initialize each parameter (cannot set them all to be the same to ensure symmetry breaking)
+
+**2.** Implement forward propagation to get an initial prediction of the outcome (which will have high error)
     * This boils down to feeding each observation in the training sample into the neural network with the randomly assigned parameters
-3. Calculate the cost function using these initial predictions
-4. Implement backpropagation to compute the partial derivatives of the cost function with respect to each parameter
+
+**3.** Calculate the cost function using these initial predictions
+
+**4.** Implement backpropagation to compute the partial derivatives of the cost function with respect to each parameter
     * This is using the formula above
-5. Apply gradient checking by comparing gradients estimated in 4\. with slope of cost function (we can estimate the gradient using these slope estimates in place of backpropagation, but it is very slow). Disable gradient checking when actually training the network.
-6. After calculating gradients using backpropagation (and confirming that they are reasonable), use gradient descent to find the optimal parameters that minimizes the cost function.
+
+**5.** Apply gradient checking by comparing gradients estimated in 4\. with slope of cost function (we can estimate the gradient using these slope estimates in place of backpropagation, but it is very slow). Disable gradient checking when actually training the network.
+
+**6.** After calculating gradients using backpropagation (and confirming that they are reasonable), use gradient descent to find the optimal parameters that minimizes the cost function.
 
