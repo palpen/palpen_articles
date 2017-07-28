@@ -4,69 +4,25 @@ Week 5 covers the algorithm for training a neural network. It involves a procedu
 
 EXCERPT LINE
 
-This lecture and the corresponding exercise has been the most difficult material so far. The implementation of the backpropagation algorithm isn't so difficult, but understanding what is going on and keeping track of the various moving parts of the algorithm requires a bit of work. Andrew also skips over many of the derivation and explanation for the equations used so I had to supplement the material with explanation from other sources (see this [blog post](http://neuralnetworksanddeeplearning.com/chap2.html) for a detailed derivation of each of the main equations). One can think of the neural network classification algortihm as a generalization of the logistic regression classification algorithm (which is simply a neural network with just an input and output layer and no hidden layer).
+This lecture and the corresponding exercise has been the most difficult material so far. The implementation of the backpropagation algorithm isn't so difficult, but understanding what is going on and keeping track of the various moving parts of the algorithm requires a bit of work. Andrew Ng also skips over many of the derivation and explanation for the equations used, which led me to seeking for supplementary materials from outside sources (see this [blog post](http://neuralnetworksanddeeplearning.com/chap2.html) for a detailed derivation of each of the main equations). I found it useful to think of the neural networks algortihm as a generalization of the logistic regression algorithm (which is simply a neural network with just an input and output layer).
 
-A hurdle to using neural networks (compared with logistic regression, for example) is in the calculation of the gradient of the cost function. For a given change in a given parameter (holding all the other parameters constant), one must account for how such a change propagates throughout the entire network. The change will pass through each layer and each activation before it manifest itself in a new value of the cost function.
-
-Note that a single layer neural network
-
-These gradients are important for using gradient descent to find the optimal parameters.
-
+A hurdle to using neural networks (compared with logistic regression, for example) is in the calculation of the gradient of the cost function. It is much more complicated than in the logistic regression case because of the multiple interdependent layers through which a change in the parameter must pass through. For a given change in a given parameter (holding all the other parameters constant), one must account for how such a change propagates throughout the entire network. The change must pass through each layer and each activation unit before it manifest itself in a new value of the cost function. It turns out that there's a single formula that captures this:
 
 <a href="{{site.url}}/img/wk5_1.png">
 <img src="{{site.url}}/img/wk5_1.png" width="225" height="250"/>
 </a>
 
+The **delta** terms are the "error" terms defined as the derivative of the cost function with respect to the weighted sum of the activation units in a given layer (denoted by z). The **a** terms is the jth activation unit for that layer.
 
-WHY NOT???? Why can we not just take derivative of cost function right away?
+Once the gradients of the cost function has been calculated, the gradient descent algorithm can then be used to find the optimal parameters.
 
+Here is how all of this is implemented:
 
-
-
-The steps to training a neural network is as follows:
-
-1. Randomly initialize parameters ()
-2. Implement forward propagation to get an initial prediction of the outcome (which would be highly inaccurate)
-    * This boils down to feeding each observation in the training sample into the neural network with randomly assigned parameters
-3. Calculate the cost function for these initial estimates
+1. Randomly initialize each parameter (cannot set them all to be the same to ensure symmetry breaking)
+2. Implement forward propagation to get an initial prediction of the outcome (which will have high error)
+    * This boils down to feeding each observation in the training sample into the neural network with the randomly assigned parameters
+3. Calculate the cost function using these initial predictions
 4. Implement backpropagation to compute the partial derivatives of the cost function with respect to each parameter
-    * asdasd
-5. Gradient checking by comparing backprop generated gradients with slope of cost function (a numerical estimate of gradient of cost function--WHY NOT USE THIS INSTEAD OF BACKPROP ???)
-6. After calculating gradients and confirming that they are reasonable, use gradient descent to find
-
-
-
-
-
-This procedure involves forward propagation for a given set of randomly generated values for the parameters, then backward propagation to estimate the gradients, then gradient descent to learn the optimal weights for the neural network.
-
-
-
-## backpropagation (what is the main idea?)
-
-The basic idea for learning a neural network is as follows:
-- forward propagate for each training example to calculate output layer values
-- backpropagate errors to calculate gradient
--
-
-* what is the intuiton for the delta terms? How are they related to the derivative of the cost term in the cost function?
-* backprop is just an algorithm for computing the gradients. The process for estimating the weights that minimuze sum of square residual is still using gradient descent.
-* what is the intuition? for backpropagation?
-
-### Gradient checking
-- checks to make sure derivative of cost function is evaluated correctly
-- disable for actual learning because it is slow (learn using backpropagation)
-
-#### Random initialization
-- symmetry breaking
-- when initial starting theta are all the same across all activation units and all layers, theta are symmetric
-- theta = r*2*INIT_EPSILON - EPSILON ensures that the value for theta is between +ve and -ve INIT_EPSILON
-
-
-
-
-QUESTION:
-- [Why not just take the derivative of the cost function with respect to each weight?]Quick question: the purpose of backprop is to get the value of the derivative of the cost function with respect to each weight. Why not just jump straight to the cost function and take the derivative with respect to each weight?
-
-Supplementary material:
-*[Detailed explanation of the backpropagation algoritm](http://neuralnetworksanddeeplearning.com/chap2.html)
+    * This is using the formula above
+5. Apply gradient checking by comparing backprop generated gradients with slope of cost function (we can estimate the gradient using these slope estimates in place of backpropagation, but it is very slow). Disable gradient checking when actually training the network.
+6. After calculating gradients using backpropagation (and confirming that they are reasonable), use gradient descent to find the optimal parameters that minimizes the cost function.
