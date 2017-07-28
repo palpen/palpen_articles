@@ -31,7 +31,7 @@ Here is a summary of the algorithm to train a neural network:
 
 **4.** Implement backpropagation to compute the partial derivatives of the cost function with respect to each parameter. This is using the formula above
 
-**5.** Apply gradient checking by comparing gradients estimated in 4\. with slope of cost function (we can estimate the gradient using these slope estimates in place of backpropagation, but it is very slow). Disable gradient checking when actually training the network.
+**5.** Apply gradient checking by comparing gradients estimated in **4\.** with slope of cost function (we can estimate the gradient using these slope estimates in place of backpropagation, but it is very slow). Disable gradient checking when actually training the network.
 
-**6.** After calculating gradients using backpropagation (and confirming that they are reasonable), use gradient descent to find the optimal parameters that minimizes the cost function.
+**6.** After calculating the gradient using backpropagation (and confirming that they are reasonable), use gradient descent to find the optimal parameters that minimizes the cost function.
 
