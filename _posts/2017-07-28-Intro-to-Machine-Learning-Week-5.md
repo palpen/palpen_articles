@@ -13,7 +13,7 @@ This lecture and the corresponding exercise has been the most difficult material
 A hurdle to using neural networks (compared with logistic regression, for example) is in the calculation of the gradient of the cost function. It is much more complicated than in the logistic regression case because of the multiple interdependent layers through which a change in the parameter must pass through. For a given change in a given parameter (holding all the other parameters constant), one must account for how such a change propagates throughout the entire network. The change must pass through each layer and each activation unit before it manifest itself in a new value of the cost function. It turns out that there's a single formula that captures this:
 
 <a href="{{site.url}}/img/wk5_1.png">
-<img src="{{site.url}}/img/wk5_1.png" width="350" height="200"/>
+<img src="{{site.url}}/img/wk5_1.png" width="350" height="150"/>
 </a>
 
 The **delta** terms are the "error" terms defined as the derivative of the cost function with respect to the weighted sum of the activation units in a given layer (denoted by z). The **a** terms is the jth activation unit for that layer.
