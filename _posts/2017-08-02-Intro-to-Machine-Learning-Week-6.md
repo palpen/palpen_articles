@@ -4,7 +4,7 @@ title: Intro to Machine Learning Week 6
 comments: true
 ---
 
-Week 6 covers some approaches that one can use to evaluate the effectiveness of ones model and estimating approach. These includes the trade-off between bias and variance and how to diagnose which is present by comparing the various error metrics calculated using the training, cross-validation, and test dataset. It also talks about some approaches for evaluating error cases in the algorithm, issues arising from classification problems with skewed classes, and scenarios under which large dataset can be useful.
+Week 6 covers some approaches that you can use to evaluate the performance of your model. These includes the trade-off between bias and variance and how to diagnose which is present by comparing the various error metrics calculated using the training, cross-validation, and test dataset. It also talks about some approaches for evaluating error cases in the algorithm, issues arising from classification problems with skewed classes, and scenarios under which large dataset can be useful.
 
 <!--excerpt-->
 
@@ -12,7 +12,7 @@ Week 6 covers some approaches that one can use to evaluate the effectiveness of 
 
 ### Evaluating a learning algorithm
 
-This lecture takes a break from learning new algorithms and talks about some of the practical guidelines to practicing machine learning. Andrew introduces the importance of using different datasets for training ones algorithm and estimating its parameters and for evaluating its performance. In particular, your dataset should be split into three sets: a **training set**, a **cross-validation set**, and a **test set**. The recommended split is 60 / 20 / 20. The reason for splitting them is because the training set is used to estimate the parameters of the learning algorithm. Given that the gradient descent algorithm chooses the parameters that minimizes the cost function, the cost calculated using the training set will always be lower than the cost calculated using any other dataset (using the estimated parameter). Your learning algorithm may achieve very low error in the training dataset but have high error out of sample.
+This lecture takes a break from learning new algorithms and talks about some of the practical guidelines to practicing machine learning. Andrew introduces the importance of using different datasets for training your algorithm and estimating its parameters and for evaluating its performance. In particular, your dataset should be split into three sets: a **training set**, a **cross-validation set**, and a **test set**. The recommended split is 60 / 20 / 20. The reason for splitting them is because the training set is used to estimate the parameters of the learning algorithm. Given that the gradient descent algorithm chooses the parameters that minimizes the cost function, the cost calculated using the training set will always be lower than the cost calculated using any other dataset (using the estimated parameter). Your learning algorithm may achieve very low error in the training dataset but have high error out of sample.
 
 The purpose of the training set is solely for estimating the parameters of your learning algorithm. The cross-validation set is for other adjustments to your model that can improve its performance. These include changing the number of the polynomial degree of your hypothesis, changing the value of the regularization parameters, or changes to the size of the training set. The test set is the final test after the training of the learning algorithm *and* each of the subsequent adjustments mentioned previously have been optimized.
 
@@ -24,7 +24,7 @@ Here are the steps for how to choose the best function to model the data and the
 
 ### Bias vs Variance
 
-Recall that a model with high bias suffers from underfitting and a model with high variance suffers from overfitting. Both contributes to high out-of-sample error. The goal is to find the function that minimizes bias and variance to maximize out-of-sample accuracy of ones learning algorithm.
+Recall that a model with high bias suffers from underfitting and a model with high variance suffers from overfitting. Both contributes to high out-of-sample error. The goal is to find the function that minimizes bias and variance to maximize out-of-sample accuracy of your learning algorithm.
 
 #### Bias vs Variance and degree of polynomial
 
@@ -121,7 +121,7 @@ Given these two metrics, a function that always predicts no cancer will have und
 
 There is, however, a trade off between these two metrics. Because of the way they are defined, increasing precision decreases recall and increasing recall decreases  precision. For example, classifying every sample as having cancer captures every person who actually has cancer, but the increase in the number of those predicted positive decreases precision.
 
-The metric that accounts for both precision and recall is the [F1-Score](https://en.wikipedia.org/wiki/F1_score). The goal is tune ones learning algorithm in a way that maximizes this value.
+The metric that accounts for both precision and recall is the [F1-Score](https://en.wikipedia.org/wiki/F1_score). The goal is tune your learning algorithm in a way that maximizes this value.
 
 ### Large data sets
 
