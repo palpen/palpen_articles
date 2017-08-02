@@ -26,7 +26,7 @@ Here are the steps for how to choose the best function to model the data and the
 
 Recall that a model with high bias suffers from underfitting and a model with high variance suffers from overfitting. Both contributes to high out-of-sample error. The goal is to find the function that minimizes bias and variance to maximize out-of-sample accuracy of ones learning algorithm.
 
-##### Bias vs Variance and degree of polynomial
+#### Bias vs Variance and degree of polynomial
 
 The trade-off between bias and variance as we increase the degree of the polynomial is summarized in the following figure
 
@@ -36,7 +36,7 @@ The trade-off between bias and variance as we increase the degree of the polynom
 
 As the degree of the polynomial increases, training error decreases. This is heading towards overfitting territory. To determine the point where we have overfit, we compare this with the cross-validation error. If the gap is large, then our model is suffering from overfitting and we should decrease the degree if the polynomial. But, decreasing it by too much may result in underfitting. This is where both training and cross-validation error is high and similar in value.
 
-##### Bias vs Variance and regularization
+#### Bias vs Variance and regularization
 
 We can also the address bias and variance trade-off by adjusting our regularization parameter, lambda. The regularization parameter penalizes model parameters (the thetas) that are too high.
 
@@ -67,7 +67,7 @@ Here are the explicit steps from the course to do undertake this experiment:
 
 It is important to note that when calculating the cross-validation error, we must use the unregularized cost function (lambda = 0). In this case, we just want the true error to evaluate the model using the estimated parameters.
 
-##### Bias vs Variance and training set size
+#### Bias vs Variance and training set size
 
 This part relates the bias and variance trade-off to the size of training set (i.e the sample size). Getting more data is not always a panacea. It is only useful in the case where the model suffers from high variance (overfitting). Why? consider the following example. Suppose the true data generating function is a cubic. If we fit a straight line through the data, our model will suffer from high bias. Even if we had more data, we have not changed the functional form of our hypothesis and the data generating process continues to be a cubic. Thus, with greater data we still have an underfitting problem if we do not change the functional form of our hypothesis.
 
@@ -75,7 +75,7 @@ In the high bias case, plotting the training error and the cross-validation erro
 
 It is only in the high variance case where more training data can help. Here, the cross-validation error decreases as the sample size increases. Training error, on the other hand, increases with sample size. This is because the fit becomes less perfect with more data points (assuming the degree of the polynomial is sufficiently high).
 
-##### Summary of the various fixes to address high bias and high variance
+#### Summary of the various fixes to address high bias and high variance
 
 This was taken verbatim from the course notes:
 
