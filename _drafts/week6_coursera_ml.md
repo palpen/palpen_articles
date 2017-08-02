@@ -7,9 +7,11 @@ EXCERPT
 
 ### Evaluating a learning algorithm
 
- This lecture is a break from learning new algorithms and talks about some of the practical guidelines that one can use when practicing machine learning.
+This lecture takes a break from learning new algorithms and talks about some of the practical guidelines to practicing machine learning. I found this lecture incredibly useful 
 
-Andrew introduces the importance of splitting ones dataset into three sets: a **training set**, a **cross-validation set**, and a **test set**. The recommended split is 60 / 20 / 20. The training set is used to estimate the parameters of the learning algorithm. Because the gradient descent algorithm chooses the parameters that minimizes the cost function. Cost calculated using the training set will always be lower than cost calculated using any other dataset (using the estimated parameter).
+Andrew introduces the importance of using different datasets for training ones algorithm and estimating its parameters and for evaluating its performance. In particular, your dataset should be split into three sets: a **training set**, a **cross-validation set**, and a **test set**. The recommended split is 60 / 20 / 20. The reason for splitting them is because the training set is used to estimate the parameters of the learning algorithm. Given that the gradient descent algorithm chooses the parameters that minimizes the cost function, the cost calculated using the training set will always be lower than the cost calculated using any other dataset (using the estimated parameter). Your learning algorithm may achieve very low error in the training dataset but have high error out of sample.
+
+The purpose of the training set is solely for estimating the parameters of your learning algorithm. The cross-validation set is for other adjustments to your model that can improve its performance. These include changing the number of the polynomial degree of your hypothesis, changing the value of the regularization parameters, or changes to the size of the training set. The test set is the final test after the training of the learning algorithm *and* each of the subsequent adjustments mentioned previously have been optimized.
 
 To choose the best function to model the data, we can take the following steps:
 
@@ -100,3 +102,5 @@ There is, however, a trade off between these two metrics. Because of the way the
 The metric that accounts for both precision and recall is the [F1-Score](https://en.wikipedia.org/wiki/F1_score). The goal is tune ones learning algorithm in a way that maximizes this value.
 
 ### Large data sets
+
+Finally, Andrew 
