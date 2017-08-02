@@ -31,7 +31,7 @@ Recall that a model with high bias suffers from underfitting and a model with hi
 The trade-off between bias and variance as we increase the degree of the polynomial is summarized in the following figure
 
 <a href="{{site.url}}/img/wk6_2.png">
-<img src="{{site.url}}/img/wk6_2.png" width="350" height="250"/>
+<img src="{{site.url}}/img/wk6_2.png" width="350" height="350"/>
 </a>
 
 As the degree of the polynomial increases, training error decreases. This is heading towards overfitting territory. To determine the point where we have overfit, we compare this with the cross-validation error. If the gap is large, then our model is suffering from overfitting and we should decrease the degree if the polynomial. But, decreasing it by too much may result in underfitting. This is where both training and cross-validation error is high and similar in value.
@@ -43,17 +43,17 @@ We can also the address bias and variance trade-off by adjusting our regularizat
 The figure relating the value of the regularization parameter, lambda, to the cost functions calculated using the training set and the cross-validation set is below. 
 
 <a href="{{site.url}}/img/wk6_1.png">
-<img src="{{site.url}}/img/wk6_1.png" width="350" height="250"/>
+<img src="{{site.url}}/img/wk6_1.png" width="350" height="350"/>
 </a>
 
-As lambda increases, we penalize the parameters for being too high, increasing the likelihood of underfiting. This monotonically increases training error because we started with a slightly overfitted model (when lambda was low) but now ended with a simpler model that is a poorer approximation of the data.
+As lambda increases, we penalize the parameters for being too high, increasing the likelihood of underfitting. This monotonically increases training error because we started with a slightly overfitted model (when lambda was low) but now ended with a simpler model that is a poorer approximation of the data.
 
 The cross validation error starts out high because with low lambda, the model overfits the training data. It decreases with larger lambda up until lambda is too large and the the model now suffers from underfitting.
 
 
 Here are the explicit steps from the course to do undertake this experiment:
 
-1. Create a list of lambdas (i.e. λ∈{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24});
+1. Create a list of lambdas (i.e. λ∈{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24})
 
 2. Create a set of models with different degrees or any other variants.
 
@@ -93,25 +93,26 @@ This was taken verbatim from the course notes:
 
 In this part of the lecture, Andrew Ng offers some guidelines for how to deal with cases where your algorithm failed to correctly classify an example.
 
-* Start with a simple algorithm and implement it quickly (within a day if possible). Avoid pre-mature optimization.
+* Start with a simple algorithm and implement it quickly (within a day if possible). Avoid premature optimization.
 * Manually go through the cases where the algorithm is misclassifying examples. Can you identify if there is anything in common across these misclassified training examples?
 * Have a numerical evaluation of the learning algorithm. Calculate single number that tells you how well your algorithm is doing. In natural language processing projects, for example, look at cross-validation error with stemming vs without stemming of words. Basically, whenever you make changes to your features or the way you process the data, you use the cross validation error to evaluate your algorithm. Then, once you have achieved a low enough cross-validation error, use the test dataset to evaluate your estimated hypothesis using the adjustments you made. The error calculated using the test dataset should never be used to guide the adjustments to the various parameters of the algorithm (e.g. regularization parameter). It should also never be used to guide the way you process the data or create features to include in the learning algorithm.
 
 ### Handling skewed classes
-Skewed data are cases where the positive classes are much smaller than the negative classes. In the example in the course, you might have data on cancer diagnoses. The data may be skewed because typically in a given sample, you will only have a few observation who were classified as having cancer and a much larger number of observation who do not have cancer. 
+Skewed data are cases where the positive classes are much smaller than the negative classes. In the example in the course, you might have data on cancer diagnoses. The data may be skewed because typically in a given sample, you will only have a few observation who were classified as having cancer and a much larger number of observation who do not have cancer.
 
 This may be problematic for the following reason: suppose you train your algorithm and evaluate it on your test case and find that it was able to diagnose 99% of the cases correctly. Error is only 1%. But suppose only 0.5% of the patients in the test sample actually have cancer. An function that always classifies every case as no-cancer will only be wrong for 0.5% of the cases (i.e. those who actually have cancer). Thus, one must be careful when dealing with skewed classification.
 
 The metrics used for evaluating data with skewed classes are the following:
 
 >  **Precision:** Of all patients we predicted as having cancer, what fraction actually have cancer? Defined as Number of true positives / Number predicted as positive
+
 >   **Recall:** Of all patients that actually have cancer, what fraction did we correctly predict to have cancer? Defined as Number of true positives / number of actual positives
 
 
 INSERT Predicted and ACtual TABLE HERE (SEE SCREEN SHOT)
 
 <a href="{{site.url}}/img/wk6_3.png">
-<img src="{{site.url}}/img/wk6_3.png" width="350" height="250"/>
+<img src="{{site.url}}/img/wk6_3.png" width="400" height="350"/>
 </a>
 
 
