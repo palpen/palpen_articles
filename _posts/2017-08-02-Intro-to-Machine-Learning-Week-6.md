@@ -31,7 +31,7 @@ Recall that a model with high bias suffers from underfitting and a model with hi
 The trade-off between bias and variance as we increase the degree of the polynomial is summarized in the following figure:
 
 <a href="{{site.url}}/img/wk6_2.png">
-<img src="{{site.url}}/img/wk6_2.png" width="350" height="350"/>
+<img src="{{site.url}}/img/wk6_2.png" width="375" height="350"/>
 </a>
 
 As the degree of the polynomial increases, training error decreases. This is heading towards overfitting territory. To determine the point where we have overfit, we compare this with the cross-validation error. If the gap is large, then our model is suffering from overfitting and we should decrease the degree of the polynomial. But, decreasing it by too much may result in underfitting. This is where both training and cross-validation error is high and similar in value.
@@ -43,7 +43,7 @@ We can also the address bias and variance trade-off by adjusting our regularizat
 The figure relating the value of the regularization parameter, lambda, to the cost functions calculated using the training set and the cross-validation set is below. 
 
 <a href="{{site.url}}/img/wk6_1.png">
-<img src="{{site.url}}/img/wk6_1.png" width="350" height="350"/>
+<img src="{{site.url}}/img/wk6_1.png" width="375" height="350"/>
 </a>
 
 As lambda increases, we penalize the parameters for being too high, increasing the likelihood of underfitting. This monotonically increases training error because we started with a slightly overfitted model (when lambda was low) but now ended with a simpler model that is a poorer approximation of the data.
@@ -95,12 +95,12 @@ In this part of the lecture, Andrew Ng offers some guidelines for how to deal wi
 
 * Start with a simple algorithm and implement it quickly (within a day if possible). Avoid premature optimization.
 * Manually go through the cases where the algorithm is misclassifying examples. Can you identify if there is anything in common across these misclassified training examples?
-* Have a numerical evaluation of the learning algorithm. Calculate single number that tells you how well your algorithm is doing. In natural language processing projects, for example, look at cross-validation error with stemming vs without stemming of words. Basically, whenever you make changes to your features or the way you process the data, you use the cross-validation error to evaluate your algorithm. Then, once you have achieved a low enough cross-validation error, use the test dataset to evaluate your estimated hypothesis using the adjustments you made. The error calculated using the test dataset should never be used to guide the adjustments to the various parameters of the algorithm (e.g. regularization parameter). It should also never be used to guide the way you process the data or create features to include in the learning algorithm.
+* Have a numerical evaluation of the learning algorithm. Calculate single number that tells you how well your algorithm is doing. In natural language processing projects, for example, look at cross-validation error with [stemming vs without stemming](https://en.wikipedia.org/wiki/Stemming) of words. In summary, whenever you make changes to your features or the way you process the data, you use the cross-validation error to evaluate your algorithm. Then, once you have achieved a low enough cross-validation error, use the test dataset to evaluate your estimated hypothesis using the adjustments you made. The error calculated using the test dataset should never be used to guide the adjustments to the various parameters of the algorithm (e.g. regularization parameter). It should also never be used to guide the way you process the data or create features to include in the learning algorithm.
 
 ### Handling skewed classes
-Skewed data are cases where the positive classes are much smaller than the negative classes. In the example in the course, you might have data on cancer diagnoses. The data may be skewed because typically in a given sample, you will only have a few observation who were classified as having cancer and a much larger number of observation who do not have cancer.
+Data that have skewed classifications are cases where the positive classes are much smaller than the negative classes. In the example in the course, you might have data on cancer diagnoses. The data may be skewed because typically in a given sample, you will only have a few observation who were classified as having cancer and a much larger number of observation who do not have cancer.
 
-This may be problematic for the following reason: suppose you train your algorithm and evaluate it on your test case and find that it was able to diagnose 99% of the cases correctly. Error is only 1%. But suppose only 0.5% of the patients in the test sample actually have cancer. An function that always classifies every case as no-cancer will only be wrong for 0.5% of the cases (i.e. those who actually have cancer). Thus, one must be careful when dealing with skewed classification.
+This may be problematic for the following reason: suppose you train your algorithm and evaluate it on your test case and find that it was able to diagnose 99% of the cases correctly. Error is only 1%. But suppose only 0.5% of the patients in the test sample actually have cancer. An function that always classifies every case as no-cancer will only be wrong for 0.5% of the cases (i.e. those who actually have cancer). This appears to be an improvement on the previous hypothesis but it would gravely suffer making predictions in the test data. One must be careful when dealing with skewed classification.
 
 The metrics used for evaluating data with skewed classes are the following:
 
@@ -108,14 +108,9 @@ The metrics used for evaluating data with skewed classes are the following:
 
 >   **Recall:** Of all patients that actually have cancer, what fraction did we correctly predict to have cancer? Defined as Number of true positives / number of actual positives
 
-
-INSERT Predicted and ACtual TABLE HERE (SEE SCREEN SHOT)
-
 <a href="{{site.url}}/img/wk6_3.png">
 <img src="{{site.url}}/img/wk6_3.png" width="400" height="350"/>
 </a>
-
-
 
 Given these two metrics, a function that always predicts no cancer will have undefined precision (0/0) and zero recall. Thus, it cannot possibly pass for a good algorithm even if it happens to lower the cross-validation error.
 
@@ -127,4 +122,4 @@ The metric that accounts for both precision and recall is the [F1-Score](https:/
 
 Finally, Andrew touches on when it is useful to use a large dataset. A large dataset is only useful if the features in it is sufficient to predict y. A dataset containing house prices and just one feature for number of rooms will not be useful even if you have a million observations.
 
-A simple test is to ask yourself "given the features in this dataset, can a human expert in this domain given a reasonably accurate prediction of y?" If yes, then having more observations in your training dataset can be useful. To make the large dataset even more effective, use a learning algorithm with many parameters (such as a logistic regression with many features or a neural network with many hidden units). This ensures that your learning algorithm doesn't suffer from high bias (in which case a large dataset would be useless).
+A simple test is to ask yourself "given the features in this dataset, can a human expert in this domain give a reasonably accurate prediction of y?" If yes, then having more observations in your training dataset can be useful. To make the large dataset even more effective, use a learning algorithm with many parameters (such as a logistic regression with many features or a neural network with many hidden units). This ensures that your learning algorithm doesn't suffer from high bias where in which case a large dataset would be useless.
