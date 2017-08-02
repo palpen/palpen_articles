@@ -53,23 +53,20 @@ It is important to note that when calculating the cross-validation error, we mus
 
 This part relates the bias and variance trade-off to the size of training set (i.e the sample size). Getting more data is not always a panacea. It is only useful in the case where the model suffers from high variance (overfitting). Why? consider the following example. Suppose the true data generating function is a cubic. If we fit a straight line through the data, our model will suffer from high bias. Even if we had more data, we have not changed the functional form of our hypothesis and the data generating process continues to be a cubic. Thus, with greater data we still have an underfitting problem if we do not change the functional form of our hypothesis.
 
+In the high bias case, plotting the training error and the cross-validation error against increasing sample size will result in the two curves converging at some constant high error value.
 
+It is only in the high variance case where more training data can help. Here, the cross-validation error decreases as the sample size increases. Training error, on the other hand, increases with sample size. This is because the fit becomes less perfect with more data points (assuming the degree of the polynomial is sufficiently high).
 
+##### Summary of the various fixes to address high bias and variance
 
+This was taken verbatim from the course notes:
 
-
-
-
-* learning curves (relates error to training sample size):
-    * diagnose high bias: If your hypothesis is too simple, you can keep increasing your training sample with very litle change in the cross validation and training error. With more data, the real relationship is between y and x becomes more clear. But your hypothesis isn't changing and it continues to just fit a straight line. So increasing sample size wont change cross-validation error much (in asymptotically converges)
-    * diagnose high variance: Large gap between cross-validation error and training error indicates a high variance problem, but gap decreases with more training sample. (Why?) The hypothesis isn't changing.
-
-* Deciding what to do next
-    * Trained a hypothesis that resulted in large error out of sample. What can you do?
-    * first identify if high variance or high bias
-
-* fixing high variance problem:
-    *
+> * **Getting more training examples:** Fixes high variance
+> * **Trying smaller sets of features:** Fixes high variance
+> * **Adding features:** Fixes high bias
+> * **Adding polynomial features:** Fixes high bias
+> * **Decreasing λ:** Fixes high bias
+> * **Increasing λ:** Fixes high variance.
 
 
 ## Machine learning system design
