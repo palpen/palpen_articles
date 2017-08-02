@@ -45,16 +45,19 @@ Skewed data are cases where the positive classes are much smaller than the negat
 
 This may be problematic for the following reason: suppose you train your algorithm and evaluate it on your test case and find that it was able to diagnose 99% of the cases correctly. Error is only 1%. But suppose only 0.5% of the patients in the test sample actually have cancer. An function that always classifies every case as no-cancer will only be wrong for 0.5% of the cases (i.e. those who actually have cancer). Thus, one must be careful when dealing with skewed classification.
 
-How to evaluate algorithms with skewed classes. Use Precision and recall. 
-
-INSERT Predicted and ACtual TABLE HERE (SEE SCREEN SHOT)
-
-The metrics for evluating data with skewed classes are defined as follows:
+The metrics used for evaluating data with skewed classes are the following:
 
 >  **Precision:** Of all patients we predicted as having cancer, what fraction actually have cancer? Defined as Number of true positives / Number predicted as positive
 >   **Recall:** Of all patients that actually have cancer, what fraction did we correctly predict to have cancer? Defined as Number of true positives / number of actual positives
 
-Given these two metrics, a function that always predicts no cancer will have undefined precision (0/0) and a recall of zero. Thus, it cannot possibly pass for a good algorithm by this metric, even if it happens to lower our cross-validation error.
+
+  
+INSERT Predicted and ACtual TABLE HERE (SEE SCREEN SHOT)
+
+
+Given these two metrics, a function that always predicts no cancer will have undefined precision (0/0) and zero recall. Thus, it cannot possibly pass for a good algorithm even if it happens to lower the cross-validation error.
+
+There is, however, a trade off between these two metrics. Because of the way they are defined, increasing precision decreases recall and increasing recall decreases  precision. For example, classifying every sample as having cancer captures every person who actually has cancer, but the increase in the number of those predicted positive decreases precision.
 
 The metric that accounts for both preceision and recall is the [F1-Score](https://en.wikipedia.org/wiki/F1_score). The goal is tune ones learning algorithm in a way that to maximizes this value.
 
