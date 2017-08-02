@@ -4,7 +4,7 @@ title: Intro to Machine Learning Week 6
 comments: true
 ---
 
-Week 6 covers some approaches that you can use to evaluate the performance of your model. These includes the trade-off between bias and variance and how to diagnose which is present by comparing the various error metrics calculated using the training, cross-validation, and test dataset. It also talks about some approaches for evaluating error cases in the algorithm, issues arising from classification problems with skewed classes, and scenarios under which large dataset can be useful.
+Week 6 covers some approaches that you can use to evaluate the performance of your model. These includes the trade-off between bias and variance and how to diagnose which is present by comparing the various error metrics calculated using the training, cross-validation, and test dataset. It also talks about some approaches for evaluating error cases in the algorithm, issues arising from classification problems with skewed classes, and scenarios under which large datasets can be useful.
 
 <!--excerpt-->
 
@@ -12,11 +12,11 @@ Week 6 covers some approaches that you can use to evaluate the performance of yo
 
 ### Evaluating a learning algorithm
 
-This lecture takes a break from learning new algorithms and talks about some of the practical guidelines to practicing machine learning. Andrew introduces the importance of using different datasets for training your algorithm and estimating its parameters and for evaluating its performance. In particular, your dataset should be split into three sets: a **training set**, a **cross-validation set**, and a **test set**. The recommended split is 60 / 20 / 20. The reason for splitting them is because the training set is used to estimate the parameters of the learning algorithm. Given that the gradient descent algorithm chooses the parameters that minimizes the cost function, the cost calculated using the training set will always be lower than the cost calculated using any other dataset (using the estimated parameter). Your learning algorithm may achieve very low error in the training dataset but have high error out of sample.
+This lecture takes a break from learning new algorithms and talks about some of the practical guidelines to practicing machine learning. Andrew introduces the importance of using different datasets for training your algorithm and estimating its parameters and for evaluating its performance. In particular, your dataset should be split into three sets: a **training set**, a **cross-validation set**, and a **test set**. The recommended split is 60 / 20 / 20. The reason for splitting them is because the training set is used to estimate the parameters of the learning algorithm. Given that the gradient descent algorithm chooses the parameters that minimizes the cost function, the cost calculated using the training set will always be lower than the cost calculated using any other dataset. Your learning algorithm may achieve very low error in the training dataset but have high error out of sample.
 
 The purpose of the training set is solely for estimating the parameters of your learning algorithm. The cross-validation set is for other adjustments to your model that can improve its performance. These include changing the number of the polynomial degree of your hypothesis, changing the value of the regularization parameters, or changes to the size of the training set. The test set is the final test after the training of the learning algorithm *and* each of the subsequent adjustments mentioned previously have been optimized.
 
-Here are the steps for how to choose the best function to model the data and the role that each dataset play in the process:
+Here are the steps for how to choose the best polynomial degree to fit the data and the role that each dataset play in this process:
 
 1. Optimize the parameters using the training set for each polynomial degree, d.
 2. Find the polynomial degree d with the least error using the cross-validation set.
@@ -28,13 +28,13 @@ Recall that a model with high bias suffers from underfitting and a model with hi
 
 #### Bias vs Variance and degree of polynomial
 
-The trade-off between bias and variance as we increase the degree of the polynomial is summarized in the following figure
+The trade-off between bias and variance as we increase the degree of the polynomial is summarized in the following figure:
 
 <a href="{{site.url}}/img/wk6_2.png">
 <img src="{{site.url}}/img/wk6_2.png" width="350" height="350"/>
 </a>
 
-As the degree of the polynomial increases, training error decreases. This is heading towards overfitting territory. To determine the point where we have overfit, we compare this with the cross-validation error. If the gap is large, then our model is suffering from overfitting and we should decrease the degree if the polynomial. But, decreasing it by too much may result in underfitting. This is where both training and cross-validation error is high and similar in value.
+As the degree of the polynomial increases, training error decreases. This is heading towards overfitting territory. To determine the point where we have overfit, we compare this with the cross-validation error. If the gap is large, then our model is suffering from overfitting and we should decrease the degree of the polynomial. But, decreasing it by too much may result in underfitting. This is where both training and cross-validation error is high and similar in value.
 
 #### Bias vs Variance and regularization
 
@@ -48,10 +48,10 @@ The figure relating the value of the regularization parameter, lambda, to the co
 
 As lambda increases, we penalize the parameters for being too high, increasing the likelihood of underfitting. This monotonically increases training error because we started with a slightly overfitted model (when lambda was low) but now ended with a simpler model that is a poorer approximation of the data.
 
-The cross validation error starts out high because with low lambda, the model overfits the training data. It decreases with larger lambda up until lambda is too large and the the model now suffers from underfitting.
+The cross-validation error starts out high because with low lambda, the model overfits the training data. It decreases with larger lambda up until lambda is too large and the the model now suffers from underfitting, thereby increasing the cross-validation error.
 
 
-Here are the explicit steps from the course to do undertake this experiment:
+Here are the explicit steps from the course to undertake this experiment:
 
 1. Create a list of lambdas (i.e. λ∈{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24})
 
@@ -59,9 +59,9 @@ Here are the explicit steps from the course to do undertake this experiment:
 
 3. Iterate through the λs and for each λ go through all the models to learn some Θ.
 
-4. Compute the cross validation error using the learned Θ (computed with λ) on the cross-validation dataset without regularization or λ = 0.
+4. Compute the cross-validation error using the learned Θ (computed with λ) on the cross-validation dataset without regularization or λ = 0.
 
-5. Select the best combo that produces the lowest error on the cross validation set.
+5. Select the best combo that produces the lowest error on the cross-validation set.
 
 6. Using the best combo Θ and λ, apply it to the cost function using the test dataset to see if it has a good generalization of the problem.
 
@@ -95,7 +95,7 @@ In this part of the lecture, Andrew Ng offers some guidelines for how to deal wi
 
 * Start with a simple algorithm and implement it quickly (within a day if possible). Avoid premature optimization.
 * Manually go through the cases where the algorithm is misclassifying examples. Can you identify if there is anything in common across these misclassified training examples?
-* Have a numerical evaluation of the learning algorithm. Calculate single number that tells you how well your algorithm is doing. In natural language processing projects, for example, look at cross-validation error with stemming vs without stemming of words. Basically, whenever you make changes to your features or the way you process the data, you use the cross validation error to evaluate your algorithm. Then, once you have achieved a low enough cross-validation error, use the test dataset to evaluate your estimated hypothesis using the adjustments you made. The error calculated using the test dataset should never be used to guide the adjustments to the various parameters of the algorithm (e.g. regularization parameter). It should also never be used to guide the way you process the data or create features to include in the learning algorithm.
+* Have a numerical evaluation of the learning algorithm. Calculate single number that tells you how well your algorithm is doing. In natural language processing projects, for example, look at cross-validation error with stemming vs without stemming of words. Basically, whenever you make changes to your features or the way you process the data, you use the cross-validation error to evaluate your algorithm. Then, once you have achieved a low enough cross-validation error, use the test dataset to evaluate your estimated hypothesis using the adjustments you made. The error calculated using the test dataset should never be used to guide the adjustments to the various parameters of the algorithm (e.g. regularization parameter). It should also never be used to guide the way you process the data or create features to include in the learning algorithm.
 
 ### Handling skewed classes
 Skewed data are cases where the positive classes are much smaller than the negative classes. In the example in the course, you might have data on cancer diagnoses. The data may be skewed because typically in a given sample, you will only have a few observation who were classified as having cancer and a much larger number of observation who do not have cancer.
