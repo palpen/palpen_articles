@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Scikit-learn Cheat Sheet: Choosing the Right Estimator
+title: Scikit-learn Cheat Sheet&#58; Choosing the Right Estimator
 comments: true
 ---
 
