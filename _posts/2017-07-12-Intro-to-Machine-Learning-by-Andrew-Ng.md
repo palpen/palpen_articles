@@ -8,3 +8,13 @@ I recently began Andrew Ng's course on Machine Learning on Coursera. For each we
 
 <!--excerpt-->
 
+
+
+
+<figure>
+<a href="{{site.url}}/img/wk7_2.png">
+<img src="{{site.url}}/img/wk7_2.png" width="350" height="150"/>
+</a>
+<figcaption>Caption goes here</figcaption>
+</figure>
+
