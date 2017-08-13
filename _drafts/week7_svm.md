@@ -20,30 +20,19 @@ Consider the example below
 
 In the figure, the line the most *cleanly* separates the classes X from O is the negatively sloped line running between the two classes. The two nearly vertical line also separates the two classes, but they are not the decision boundary that is optimal.
 
-The SVM algorithm uses a cost function that have a similar structure to the cost function of the logistic regression. In the logistic regression the cost function include the log of the sigmoid function and the log of 1 minus the sigmoid function. For SVM, these terms are replaced by a piecewise function that looks like the following (depending on the value of y)
+The SVM algorithm uses a cost function that have a similar structure to the cost function of the logistic regression. In the logistic regression the cost function include the log of the sigmoid function and the log of 1 minus the sigmoid function. For SVM, these terms are replaced by a piecewise function that looks like the following depending on the value of y (they are the dark blue line tracing the corresponding function in logistic regression)
 
-It is a piecewise function that follows the general shape of the co
-
-that looks like the following for positive classes (y=1)
-
-<figure>
 <a href="{{site.url}}/img/wk7_2.png">
 <img src="{{site.url}}/img/wk7_2.png" width="350" height="150"/>
 </a>
-<figcaption>Caption goes here</figcaption>
-</figure>
-
-For negative classes (y=0), it looks like
 
 <a href="{{site.url}}/img/wk7_3.png">
 <img src="{{site.url}}/img/wk7_3.png" width="350" height="150"/>
 </a>
 
-The cost function
+The structure of these terms of the cost function in SVM is what gives rise to the large margin characterization of the decision boundary. 
 
-This cost function structure is what gives rise to the large margin characterization of the decision boundary. 
-
-
+SVMs can model very complex non-linear decision boundaries. To do this, it relies on kernelss
 
 
 The underlying mechanics of finding this decision boundary is fairly involved. 

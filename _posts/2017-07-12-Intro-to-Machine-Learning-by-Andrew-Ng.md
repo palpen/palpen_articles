@@ -7,14 +7,3 @@ comments: true
 I recently began Andrew Ng's course on Machine Learning on Coursera. For each week in the course, I will summarize what was covered in the lectures and the exercises. My goal is to have a collection of articles containing the main ideas behind machine learning so that they may serve as a reference for when I need to use this technique in the future.
 
 <!--excerpt-->
-
-
-
-
-<figure>
-<a href="{{site.url}}/img/wk7_2.png">
-<img src="{{site.url}}/img/wk7_2.png" width="350" height="150"/>
-</a>
-<figcaption>Caption goes here</figcaption>
-</figure>
-
