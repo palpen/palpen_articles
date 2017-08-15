@@ -5,11 +5,6 @@ Week 7 covers the support vector machine (SVM) algorithm. This is the last super
 
 EXCERPT
 
-There are many good resources for learning explaining how the support vector machine (SVM) algorithm works. The best one is certainly the material covered in the Coursera course. I suggest you check it out. But here are some other resources that also explain it fairly well:
-
-**SVM RESOURCES**
-* http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_ml/py_svm/py_svm_basics/py_svm_basics.html#svm-understanding
-
 SVMs is hailed to be a very powerful learning algorithm for non-linear classification. In its basic form, the algorithm looks for the line that most "cleanly" separates the different classifications in the data. By cleanly, it finds the line with the largest margin on either side. This is why the SVM is sometimes also called a **large margin classifier**.
 
 Consider the example below
@@ -30,12 +25,16 @@ The SVM algorithm uses a cost function that have a similar structure to the cost
 <img src="{{site.url}}/img/wk7_3.png" width="350" height="150"/>
 </a>
 
-The structure of these terms of the cost function in SVM is what gives rise to the large margin characterization of the decision boundary. 
+The structure of these terms of the cost function in SVM is what gives rise to the large margin characterization of the decision boundary.
 
-SVMs can model very complex non-linear decision boundaries. To do this, it relies on kernelss
+SVMs can model very complex non-linear decision boundaries. In the logistic regression case, we can model non-linear decision boundaries by using higher-order polynomials features. The drawback of this approach is that it can become computationally expensive to train the model, especially in cases where the data has a very rich set of features. The SVM algorithm gets around this by using a kernel to map the two data points--a training example and a landmark--to some value representing the similarity between the two.
 
 
-The underlying mechanics of finding this decision boundary is fairly involved. 
+
+
+
+
+The two parameters that needs to be exogenously given are the regularization parameter C and the kernel parameter SIGMA
 
 
 
@@ -64,13 +63,10 @@ $$\sum_{n}^{i=1}$$
 - What is the intuition for size of sigma relationship with bias and variance?
 
 
-### to add to blog post: 
-* find one or two additional references for SVM (in addition to Coursera)
+### to add to blog post:
 
- Logis(c regression vs. SVMs
-number of features ( ),   number of training examples If   is large (rela2ve to ):
-Use logis2c regression, or SVM without a kernel (“linear kernel”)
-If   is small,   is intermediate: Use SVM with Gaussian kernel
-If   is small,   is large:
-Create/add more features, then use logis2c regression or SVM without a kernel
-Neural network likely to work well for most of these secngs, but may be slower to train.
+
+**SVM RESOURCES**
+* http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_ml/py_svm/py_svm_basics/py_svm_basics.html#svm-understanding
+* RESOURCES 2
+* http://blog.davidkaleko.com/svm-email-filter-implementation.html
