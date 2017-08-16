@@ -27,19 +27,23 @@ The SVM algorithm uses a cost function that have a similar structure to the cost
 
 The structure of these terms of the cost function in SVM is what gives rise to the large margin characterization of the decision boundary.
 
-SVMs can model very complex non-linear decision boundaries. In the logistic regression case, we can model non-linear decision boundaries by using higher-order polynomials features. The drawback of this approach is that it can become computationally expensive to train the model, especially in cases where the data has a very rich set of features. Another complicated decision boundary could be a case where you cannot split the two classes with one continuous line.
+SVMs can model very complex non-linear decision boundaries. In the logistic regression case, we can model non-linear decision boundaries by using higher-order polynomials features. The drawback of this approach is that it can become computationally expensive to train the model, especially in cases where the data has a very rich set of features. Another complicated decision boundary could be a case where you cannot split the two classes with one continuous line (see examples [here](http://haohanw.blogspot.ca/2014/03/ml-how-sigma-matters-in-svm-rbf-kernel.html)).
 
 The SVM algorithm gets around this by using a kernel to map the two data points--a training example and a landmark--to some value representing the similarity between the two. The kernel used in the course is the [Gaussian kernel](https://en.wikipedia.org/wiki/Radial_basis_function_kernel) (also called the Radial basis function kernel).
 
 I still don't understand the mathematical justification for the kernel trick. Based on my reading of outside sources, the kernel is applied to project the data to a different feature space. This is important especially if the data is non-linearly separable. In such a case, the kernel trick in SVM allows the projection of the data into a space where it will be linearly separable. I will definitely need to revisit this in the future to understand the details.
 
-## Parameters to choose when using SVM
+## Parameters to choose when using SVM and how they affect bias and variance
 
 There are two parameters to tune when using SVM with the Gaussian kernel: C and $\sigma$. C is just the inverse of the regularization parameters, $\lambda$. With greater C, $\lambda$ must be small. This means we are more likely to overfit (greater variance). Conversely, a small C imply a large $\lambda$. This makes it more likely to underfit (greater bias).
 
 $\sigma$ is the Gaussian kernel parameter controlling the speed at which the value of the function changes as you move away from its peak. A smaller $\sigma$ results in a steeper slope around the peak. Conversely, a higher $\sigma$ results in a flatter kernel function. 
 
-[here] (http://haohanw.blogspot.ca/2014/03/ml-how-sigma-matters-in-svm-rbf-kernel.html)
+What is the implication of this? A small $\sigma$ tend to overfit (high variance). This happens because when $\sigma$ is really small, a given example $x^(i)$ needs to be really close to the landmark in order for the kernel function to be non-zero. Thus, the example $x^(i)$ will only be classified as a given class if it is really close (in terms of Euclidean distance) to a landmark of that class. This is equivalent to overfitting in that any slight deviation from a given class immediately results in the hypothesis assigning a different kind of classification. See [here] (http://haohanw.blogspot.ca/2014/03/ml-how-sigma-matters-in-svm-rbf-kernel.html) a good explanation of this with figures.
+
+Conversely, a large $\sigma$ tend to underfit (high bias). In this case, the Gaussian kernel function is flat. This means that the example can be pretty far from a given landmark for the kernel to be non-zero. Thus, although the example is far from the landmark, it can still be classified according to the same classification as that landmark.
+
+
 
 ## Practice tips when using SVMs
 
