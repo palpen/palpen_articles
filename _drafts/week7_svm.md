@@ -3,7 +3,7 @@
 
 Week 7 covers the support vector machine (SVM) algorithm. This is the last supervised learning algorithm covered in the course.
 
-EXCERPT
+<!--excerpt-->
 
 SVMs is hailed to be a very powerful learning algorithm for non-linear classification. In its basic form, the algorithm looks for the line that most "cleanly" separates the different classifications in the data. By cleanly, it finds the line with the largest margin on either side. Because of this, the SVM algorithm is also called a **large margin classifier**.
 
@@ -37,7 +37,7 @@ I still don't understand the mathematical justification for the kernel trick. Ba
 
 There are two parameters to tune when using SVM with the Gaussian kernel: C and $\sigma$. C is just the inverse of the regularization parameters, $\lambda$. With greater C, $\lambda$ must be small. This means we are more likely to overfit (greater variance). Conversely, a small C imply a large $\lambda$. This makes it more likely to underfit (greater bias).
 
-$\sigma$ is the Gaussian kernel parameter controlling the speed at which the value of the function changes as you move away from its peak. A smaller $\sigma$ results in a steeper slope around the peak. Conversely, a higher $\sigma$ results in a flatter kernel function. 
+$\sigma$ is the Gaussian kernel parameter controlling the speed at which the value of the function changes as you move away from its peak. A smaller $\sigma$ results in a steeper slope around the peak. Conversely, a higher $\sigma$ results in a flatter kernel function.
 
 What is the implication of this? A small $\sigma$ tend to overfit (high variance). This happens because when $\sigma$ is really small, a given example $x^(i)$ needs to be really close to the landmark in order for the kernel function to be non-zero. Thus, the example $x^(i)$ will only be classified as a given class if it is really close (in terms of Euclidean distance) to a landmark of that class. This is equivalent to overfitting in that any slight deviation from a given class immediately results in the hypothesis assigning a different kind of classification. See [here] (http://haohanw.blogspot.ca/2014/03/ml-how-sigma-matters-in-svm-rbf-kernel.html) a good explanation of this with figures.
 
@@ -49,4 +49,4 @@ Lastly, it was also advised to perform feature scaling if features have very dif
 
 SVM with Gaussian kernel is best used in cases where there are relatively few features compared to the number of observations in the data. Also, the number of observations, m, shouldn't be too large. This is because the algorithm must estimate m+1 parameters. The guideline is n=1 to 1,000 features and m = 10 to 50,000.
 
-If m is very large (but is still greater than the number of features), using SVM becomes computationally expensive. Use logisitic regression or SVM with a linear kernel instead. It was also recommended to use these methods if there are more features than observations.
+If m is very large (but is still greater than the number of features), using SVM becomes computationally expensive. Use logisitic regression or SVM with a linear kernel instead. It was also recommended to use these methods if there are more features than observations (e.g. text classification problem with many features (words), but small number of text).
