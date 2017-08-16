@@ -38,7 +38,7 @@ I still don't understand the mathematical justification for the kernel trick. Ba
 
 ## SVM Gaussian kernel parameters, bias and variance, feature scaling
 
-There are two parameters to tune when using SVM with the Gaussian kernel: C and $\sigma$. C is just the inverse of the regularization parameters, $\lambda$. With greater C, $\lambda$ must be small. This means we are more likely to overfit (greater variance). Conversely, a small C imply a large $\lambda$. This makes it more likely to underfit (greater bias).
+There are two parameters to tune when using SVM with the Gaussian kernel: C and $$\sigma$$. C is just the inverse of the regularization parameters, $\lambda$. With greater C, $\lambda$ must be small. This means we are more likely to overfit (greater variance). Conversely, a small C imply a large $\lambda$. This makes it more likely to underfit (greater bias).
 
 $\sigma$ is the Gaussian kernel parameter controlling the speed at which the value of the function changes as you move away from its peak. A smaller $\sigma$ results in a steeper slope around the peak. Conversely, a higher $\sigma$ results in a flatter kernel function.
 
