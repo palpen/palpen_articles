@@ -33,7 +33,7 @@ The SVM algorithm gets around this by using a kernel to map the two data points-
 
 I still don't understand the mathematical justification for the kernel trick. Based on my reading of outside sources, the kernel is applied to project the data to a different feature space. This is important especially if the data is non-linearly separable. In such a case, the kernel trick in SVM allows the projection of the data into a space where it will be linearly separable. I will definitely need to revisit this in the future to understand the details.
 
-## Parameters to choose when using SVM and how they affect bias and variance
+## SVM Gaussian kernel parameters, bias and variance, feature scaling
 
 There are two parameters to tune when using SVM with the Gaussian kernel: C and $\sigma$. C is just the inverse of the regularization parameters, $\lambda$. With greater C, $\lambda$ must be small. This means we are more likely to overfit (greater variance). Conversely, a small C imply a large $\lambda$. This makes it more likely to underfit (greater bias).
 
@@ -43,32 +43,10 @@ What is the implication of this? A small $\sigma$ tend to overfit (high variance
 
 Conversely, a large $\sigma$ tend to underfit (high bias). In this case, the Gaussian kernel function is flat. This means that the example can be pretty far from a given landmark for the kernel to be non-zero. Thus, although the example is far from the landmark, it can still be classified according to the same classification as that landmark.
 
+Lastly, it was also advised to perform feature scaling if features have very difference scale. This improves performance and ensures that small scale features are not ignored.
 
+## Logistic regression vs SVMs
 
-## Practice tips when using SVMs
+SVM with Gaussian kernel is best used in cases where there are relatively few features compared to the number of observations in the data. Also, the number of observations, m, shouldn't be too large. This is because the algorithm must estimate m+1 parameters. The guideline is n=1 to 1,000 features and m = 10 to 50,000.
 
-
-
-The two parameters that needs to be exogenously given are the regularization parameter C and the kernel parameter SIGMA
-
-
-
-
-What is the major advantage of SVM over other learning algorithms?
-
-## SVMs in Practice
-
-#### advantages
-
-#### disadvantages
-
-
-
-### Questions:
-- Why is the hypothesis equal to 1 when theta * X is greater than zero? (first video)? Why isn't it greater than or equal to 1 (why zero)?
-- What is the intuition for size of sigma relationship with bias and variance?
-
-**SVM RESOURCES**
-* http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_ml/py_svm/py_svm_basics/py_svm_basics.html#svm-understanding
-* RESOURCES 2
-* http://blog.davidkaleko.com/svm-email-filter-implementation.html
+If m is very large (but is still greater than the number of features), using SVM becomes computationally expensive. Use logisitic regression or SVM with a linear kernel instead. It was also recommended to use these methods if there are more features than observations.
