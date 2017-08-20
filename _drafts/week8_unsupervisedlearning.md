@@ -41,7 +41,7 @@ Here is a description of the standard K-means algorithm described in the course:
 1. Choose the number of clusters K and randomly generate these K initial cluster centroid vectors.
 2. For some prespecified number of iterations, do the following:
 
-    **i. Assignment Step:** assign each training example $x^{(i)}$ to one of the K-centroid it is closest to. Denote the optimal cluster centroid assigned to training example $i$ by $c^{(i)}$ . Formally, for each $x^{(i)}$, choose among the K vectors that minimizes the square of the norm of their difference: min_{k} \lVert x^{(i)}-\mu_{k} \rVert^{2}$.
+    **i. Assignment Step:** assign each training example $x^{(i)}$ to one of the K-centroid it is closest to. Denote the optimal cluster centroid assigned to training example $i$ by $c^{(i)}$ . Formally, for each $x^{(i)}$, choose among the K vectors that minimizes the square of the norm of their difference: $min_{k} \lVert x^{(i)}-\mu_{k} \rVert^{2}$.
     **ii. Update Step:** Following i., each training example will be assigned to one of the K cluster centroid vectors. Calculate the K means of each of these group (e.g. if training examples 1, 5, 40, 53, and 106 are assigned to cluster centroid 2, then $\mu_{2} = (1 / 5) * (x^{(1)}+x^{(5)}+x^{(40)}+x^{(53)}+x^{(106)})$).
 
 One issue that could arise with this algorithm is that it may converge to a local optima.
