@@ -6,6 +6,8 @@ comments: true
 
 I recently began Andrew Ng's course on Machine Learning on Coursera. For each week in the course, I will summarize what was covered in the lectures and the exercises. My goal is to have a collection of articles containing the main ideas behind machine learning so that they may serve as a reference for when I need to use these techniques in the future. All the images used in this series of posts are taken from the course.
 
+<!--excerpt-->
+
 Links to posts:
 1. <a href="{{site.url}}/2017/07/13/Intro-to-Machine-Learning-Week-1.html">Week 1</a>: Introduction, linear regression, linear algebra review
 2. <a href="{{site.url}}/2017/07/13/Intro-to-Machine-Learning-Week-2.html">Week 2</a>: Linear regression with multiple variables
@@ -19,4 +21,3 @@ Links to posts:
 10. <a href="{{site.url}}/2017///Intro-to-Machine-Learning-Week-10.html">Week 10</a>: Large scale machine learning (work-in-progress)
 11. <a href="{{site.url}}////Intro-to-Machine-Learning-Week-11.html">Week 11</a>: Machine learning end-to-end application (work-in-progress)
 
-<!--excerpt-->
