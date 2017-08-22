@@ -10,7 +10,7 @@ Week 8 covers materials on unsupervised learning, which are learning algorithms 
 
 # K-means clustering
 
-**[Click here]({{site.url}}/2017/07/12/Intro-to-Machine-Learning-by-Andrew-Ng.html) for the initial blog post on this series of lectures notes for the course**
+**[Click here]({{site.url}}/2017/07/12/Intro-to-Machine-Learning-by-Andrew-Ng.html) for the initial blog post on this series**
 
 K-means clustering is an algorithm for detecting clusters or groups in your data. The K refers to the predetermined number of clusters that you want to detect in your data. It is an unsupervised learning algorithm because it doesn't require your examples to have labels to detect the clusters. Some application of the K-means algorithm given in the course include market segmentation and social network analysis. Perhaps it can also be used to identify categories in your data in order to label them.
 
@@ -57,9 +57,9 @@ This happens if the initial K cluster centroids are poorly chosen. To fix this, 
 
 1. For some fixed number of iteration, Q:
     2. Randomly initialize the K vectors
-    3. Run the standard algorithm described above and find the optimal assignments $$c^{(1)}, c^{(2)},...,c^{(m)}$$ and K-means vectors $$\mu_{1}, \mu_{2},...,\mu_{K}$$ and the optimal assignments for each example
+    3. Run the standard algorithm described above and find the optimal assignments for each example $$c^{(1)}, c^{(2)},...,c^{(m)}$$ and K-means vectors $$\mu_{1}, \mu_{2},...,\mu_{K}$$
     4. Compute the cost function (distortion):
 
          $$J(c^{(1)},...,c^{(m)}; \mu_{1},...,\mu_{K}) = (1/m) * \sum_{i=1}^{m} \lVert x^{(i)}-\mu_{c^{(i)}} \rVert^{2}$$
 
-2. Among the Q costs calculated in 1., pick the assignments $$c^{(1)}, c^{(2)},...,c^{(m)}$$ and set of cluster centroids $$\mu_{1}, \mu_{2},...,\mu_{K}$$ that have the lowest cost.
+2. Among the Q costs calculated in 1., pick the assignments $$c^{(1)}, c^{(2)},...,c^{(m)}$$ and set of cluster centroids $$\mu_{1}, \mu_{2},...,\mu_{K}$$ that yield the lowest value for $$J(c^{(1)},...,c^{(m)}; \mu_{1},...,\mu_{K})$$.
