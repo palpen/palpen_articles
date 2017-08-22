@@ -17,20 +17,20 @@ K-means clustering is an algorithm for detecting clusters or groups in your data
 The goal is to get from data that look like this
 
 <a href="{{site.url}}/img/wk8_1.png">
-<img src="{{site.url}}/img/wk8_1.png" width="225" height="250"/>
+<img src="{{site.url}}/img/wk8_1.png" width="250" height="250"/>
 </a>
 
 to data where groups are clearly identified
 
 <a href="{{site.url}}/img/wk8_2.png">
-<img src="{{site.url}}/img/wk8_2.png" width="225" height="250"/>
+<img src="{{site.url}}/img/wk8_2.png" width="250" height="250"/>
 </a>
 
 
 In the example above, it is easy enough to see that there are two clusters. But with data with a much larger set of features, it is harder to see. It is also not always the case that data organize themselves into obvious clusters
 
 <a href="{{site.url}}/img/wk8_3.png">
-<img src="{{site.url}}/img/wk8_3.png" width="225" height="250"/>
+<img src="{{site.url}}/img/wk8_3.png" width="250" height="250"/>
 </a>
 
 
@@ -50,7 +50,7 @@ Here is a description of the standard K-means algorithm described in the course:
 One issue that could arise with this algorithm is that it may converge to a local optima.
 
 <a href="{{site.url}}/img/wk8_4.png">
-<img src="{{site.url}}/img/wk8_4.png" width="225" height="250"/>
+<img src="{{site.url}}/img/wk8_4.png" width="250" height="250"/>
 </a>
 
 This happens if the initial K cluster centroids are poorly chosen. To fix this, use the following algorithm to run the K-means algorithm with different initializations of the K vectors:
