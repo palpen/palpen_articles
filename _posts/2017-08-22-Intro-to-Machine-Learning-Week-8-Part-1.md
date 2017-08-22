@@ -43,8 +43,8 @@ Here is a description of the standard K-means algorithm described in the course:
 1. Choose the number of clusters K and randomly generate these K initial cluster centroid vectors.
 2. For some predetermined number of iterations, do the following:
 
-    **i. Assignment Step:** assign each training example $x^{(i)}$ to one of the K-centroid it is closest to. Denote the optimal cluster centroid assigned to training example $i$ by $c^{(i)}$ . Formally, for each $x^{(i)}$, choose among the K vectors that minimizes the square of the norm of their difference: $min_{k} \lVert x^{(i)}-\mu_{k} \rVert^{2}$.
-    **ii. Update Step:** Following i., each training example will be assigned to one of the K cluster centroid vectors. Calculate the K means of each of these group (e.g. if training examples 1, 5, 40, 53, and 106 are assigned to cluster centroid 2, then $\mu_{2} = (1 / 5) * (x^{(1)}+x^{(5)}+x^{(40)}+x^{(53)}+x^{(106)})$).
+    **i. Assignment Step:** assign each training example $$x^{(i)}$$ to one of the K-centroid it is closest to. Denote the optimal cluster centroid assigned to training example $$i$$ by $$c^{(i)}$$ . Formally, for each $$x^{(i)}$$, choose among the K vectors that minimizes the square of the norm of their difference: $$min_{k} \lVert x^{(i)}-\mu_{k} \rVert^{2}$$.
+    **ii. Update Step:** Following i., each training example will be assigned to one of the K cluster centroid vectors. Calculate the K means of each of these group (e.g. if training examples 1, 5, 40, 53, and 106 are assigned to cluster centroid 2, then $$\mu_{2} = (1 / 5) * (x^{(1)}+x^{(5)}+x^{(40)}+x^{(53)}+x^{(106)}))$$.
 
 One issue that could arise with this algorithm is that it may converge to a local optima.
 
@@ -56,7 +56,7 @@ This happens if the initial K cluster centroids are poorly chosen. To fix this, 
 
 1. For some fixed number of iteration, Q:
     2. Randomly initialize the K vectors
-    3. Run the standard algorithm described above and find the optimal assignments c^{(1)}, c^{(2)},...,c^{(m)} and K-means vectors $\mu_{1}, \mu_{2},...,\mu_{K}$ and the optimal assignments for each example
+    3. Run the standard algorithm described above and find the optimal assignments $$c^{(1)}, c^{(2)},...,c^{(m)}$$ and K-means vectors $$\mu_{1}, \mu_{2},...,\mu_{K}$$ and the optimal assignments for each example
     4. Compute the cost function (distortion):
-        5. $J(c^{(1)},...,c^{(m)}; \mu_{1},...,\mu_{K}) = (1/m) * \sum_{i=1}^{m} \lVert x^{(i)}-\mu_{c^{(i)}} \rVert^{2}$
-2. Among the Q costs calculated in 1., pick the assignments $c^{(1)}, c^{(2)},...,c^{(m)}$ and set of cluster centroids $\mu_{1}, \mu_{2},...,\mu_{K}$ that have the lowest cost.
+        5. $$J(c^{(1)},...,c^{(m)}; \mu_{1},...,\mu_{K}) = (1/m) * \sum_{i=1}^{m} \lVert x^{(i)}-\mu_{c^{(i)}} \rVert^{2}$$
+2. Among the Q costs calculated in 1., pick the assignments $$c^{(1)}, c^{(2)},...,c^{(m)}$$ and set of cluster centroids $$\mu_{1}, \mu_{2},...,\mu_{K}$$ that have the lowest cost.
