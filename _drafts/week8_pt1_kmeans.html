@@ -1040,45 +1040,50 @@ MathJax.Hub.Config({
   showProcessingMessages: false
 });
 </script>
-<title>week7_svm</title></head><body><article class="markdown-body"><h1 id="support-vector-machines-svm"><a name="user-content-support-vector-machines-svm" href="#support-vector-machines-svm" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Support vector machines (SVM)</h1>
-<p>Week 7 covers the support vector machine (SVM) algorithm. This is the last supervised learning algorithm covered in the course.</p>
-<p>EXCERPT</p>
-<p>SVMs is hailed to be a very powerful learning algorithm for non-linear classification. In its basic form, the algorithm looks for the line that most &ldquo;cleanly&rdquo; separates the different classifications in the data. By cleanly, it finds the line with the largest margin on either side. Because of this, the SVM algorithm is also called a <strong>large margin classifier</strong>.</p>
-<p>Consider the example below</p>
-<p><a href="{{site.url}}/img/wk7_8.png"><br />
-<img src="{{site.url}}/img/wk7_8.png" width="350" height="150"/><br />
+<title>week8_pt1_kmeans</title></head><body><article class="markdown-body"><h1 id="k-means-clustering"><a name="user-content-k-means-clustering" href="#k-means-clustering" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>K-means clustering</h1>
+<p>Week 8 covers materials on unsupervised learning, which are learning algorithms that do not use class labels. It covers two topics: K-means clustering (an algorithm for detecting clusters in data) and principal component analysis (a dimension reduction algorithm).</p>
+<!--excerpt-->
+
+<p><a href="{{site.url}}/2017/07/13/Intro-to-Machine-Learning-Week-1.html">Click here</a> </p>
+<p><a href="{{site.url}}/2017/07/13/Intro-to-Machine-Learning-Week-1.html">Click here</a> for the initial blog post on this series of lectures notes for the course</p>
+<p>K-means clustering is an algorithm for detecting clusters or groups in your data. The K refers to the pre-specified number of clusters that you want to detect in your data. It is an unsupervised learning algorithm because it doesn&rsquo;t require your examples to have labels to detect the clusters. Some application of the K-means algorithm given in the course include market segmentation and social network analysis. Perhaps it can also be used to identify categories in your data in order to label them.</p>
+<p>The goal is to get from data that look like this</p>
+<p><a href="{{site.url}}/img/wk8_1.png"><br />
+<img src="{{site.url}}/img/wk8_1.png" width="225" height="250"/><br />
 </a></p>
-<p>In the figure, the line the most <em>cleanly</em> separates the classes X from O is the negatively sloped line running between the two classes. The two nearly vertical line also separates the two classes, but they are not the decision boundary that is optimal.</p>
-<p>The SVM algorithm uses a cost function that have a similar structure to the cost function of the logistic regression. In the logistic regression the cost function include the log of the sigmoid function and the log of 1 minus the sigmoid function. For SVM, these terms are replaced by a piecewise function that looks like the following depending on the value of y (they are the dark blue line tracing the corresponding function in logistic regression)</p>
-<p><a href="{{site.url}}/img/wk7_2.png"><br />
-<img src="{{site.url}}/img/wk7_2.png" width="350" height="150"/><br />
+<p>to data where groups are clearly identified</p>
+<p><a href="{{site.url}}/img/wk8_2.png"><br />
+<img src="{{site.url}}/img/wk8_2.png" width="225" height="250"/><br />
 </a></p>
-<p><a href="{{site.url}}/img/wk7_3.png"><br />
-<img src="{{site.url}}/img/wk7_3.png" width="350" height="150"/><br />
+<p>In the example above, it is easy enough to see that there are two clusters. But with data with a much larger set of features, it is harder to see. It is also not always the case that data organize themselves into obvious clusters</p>
+<p><a href="{{site.url}}/img/wk8_3.png"><br />
+<img src="{{site.url}}/img/wk8_3.png" width="225" height="250"/><br />
 </a></p>
-<p>The structure of these terms of the cost function in SVM is what gives rise to the large margin characterization of the decision boundary.</p>
-<p>SVMs can model very complex non-linear decision boundaries. In the logistic regression case, we can model non-linear decision boundaries by using higher-order polynomials features. The drawback of this approach is that it can become computationally expensive to train the model, especially in cases where the data has a very rich set of features. The SVM algorithm gets around this by using a kernel to map the two data points&ndash;a training example and a landmark&ndash;to some value representing the similarity between the two. The kernel used in the course is the <a href="https://en.wikipedia.org/wiki/Radial_basis_function_kernel">Gaussian kernel</a> (also called the Radial basis function kernel).</p>
-<p>I still don&rsquo;t understand the mathematical justification for the kernel trick. Based on my reading of outside sources, the kernel is applied to project the data to a different feature space. This is important especially if the data is non-linearly separable. In such a case, the kernel trick in SVM allows the projection of the data into a space where it will be linearly separable. I will definitely need to revisit this in the future to understand the details.</p>
-<h2 id="parameters-to-choose-when-using-svm"><a name="user-content-parameters-to-choose-when-using-svm" href="#parameters-to-choose-when-using-svm" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Parameters to choose when using SVM</h2>
-<p>There are two parameters to tune when using SVM with the Gaussian kernel: C and $\sigma$. C is just the inverse of the regularization parameters, $\lambda$. $\sigma$ is the kernel parameter that</p>
-<h2 id="practice-tips-when-using-svms"><a name="user-content-practice-tips-when-using-svms" href="#practice-tips-when-using-svms" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Practice tips when using SVMs</h2>
-<p>The two parameters that needs to be exogenously given are the regularization parameter C and the kernel parameter SIGMA</p>
-<p>What is the major advantage of SVM over other learning algorithms?</p>
-<p>$$MATH$$<br />
-$$\sum_{n}^{i=1}$$</p>
-<h2 id="large-margin-classification"><a name="user-content-large-margin-classification" href="#large-margin-classification" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Large Margin Classification</h2>
-<h2 id="kernel-1"><a name="user-content-kernel-1" href="#kernel-1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Kernel 1</h2>
-<h2 id="kernel-2"><a name="user-content-kernel-2" href="#kernel-2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Kernel 2</h2>
-<h2 id="svms-in-practice"><a name="user-content-svms-in-practice" href="#svms-in-practice" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>SVMs in Practice</h2>
-<h4 id="advantages"><a name="user-content-advantages" href="#advantages" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>advantages</h4>
-<h4 id="disadvantages"><a name="user-content-disadvantages" href="#disadvantages" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>disadvantages</h4>
-<h3 id="questions"><a name="user-content-questions" href="#questions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Questions:</h3>
-<ul>
-<li>Why is the hypothesis equal to 1 when theta * X is greater than zero? (first video)? Why isn&rsquo;t it greater than or equal to 1 (why zero)?</li>
-<li>What is the intuition for size of sigma relationship with bias and variance?</li>
-</ul>
-<h3 id="to-add-to-blog-post"><a name="user-content-to-add-to-blog-post" href="#to-add-to-blog-post" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>to add to blog post:</h3>
-<p><strong>SVM RESOURCES</strong><br />
-<em> <a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_ml/py_svm/py_svm_basics/py_svm_basics.html#svm-understanding"><a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_ml/py_svm/py_svm_basics/py_svm_basics.html#svm-understanding">http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_ml/py_svm/py_svm_basics/py_svm_basics.html#svm-understanding</a></a><br />
-</em> RESOURCES 2<br />
-* <a href="http://blog.davidkaleko.com/svm-email-filter-implementation.html">http://blog.davidkaleko.com/svm-email-filter-implementation.html</a></p></article></body></html>
+<p>This is where a systematic approach for detecting clusters, which is what the K-means algorithm does, is useful.</p>
+<h3 id="the-k-means-clustering-algorithm"><a name="user-content-the-k-means-clustering-algorithm" href="#the-k-means-clustering-algorithm" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The K-means clustering algorithm</h3>
+<p>Here is a description of the standard K-means algorithm described in the course:</p>
+<ol>
+<li>Choose the number of clusters K and randomly generate these K initial cluster centroid vectors.</li>
+<li>
+<p>For some prespecified number of iterations, do the following:</p>
+<p><strong>i. Assignment Step:</strong> assign each training example $x^{(i)}$ to one of the K-centroid it is closest to. Denote the optimal cluster centroid assigned to training example $i$ by $c^{(i)}$ . Formally, for each $x^{(i)}$, choose among the K vectors that minimizes the square of the norm of their difference: $min_{k} \lVert x^{(i)}-\mu_{k} \rVert^{2}$.<br />
+<strong>ii. Update Step:</strong> Following i., each training example will be assigned to one of the K cluster centroid vectors. Calculate the K means of each of these group (e.g. if training examples 1, 5, 40, 53, and 106 are assigned to cluster centroid 2, then $\mu_{2} = (1 / 5) * (x^{(1)}+x^{(5)}+x^{(40)}+x^{(53)}+x^{(106)})$).</p>
+</li>
+</ol>
+<p>One issue that could arise with this algorithm is that it may converge to a local optima.</p>
+<p><a href="{{site.url}}/img/wk8_4.png"><br />
+<img src="{{site.url}}/img/wk8_4.png" width="225" height="250"/><br />
+</a></p>
+<p>This happens if the initial K cluster centroids are poorly chosen. To fix this, use the following algorithm to run the K-means algorithm with different initializations of the K vectors:</p>
+<ol>
+<li>For some fixed number of iteration, Q:<ol>
+<li>Randomly initialize the K vectors</li>
+<li>Run the standard algorithm described above and find the optimal assignments c^{(1)}, c^{(2)},&hellip;,c^{(m)} and K-means vectors $\mu_{1}, \mu_{2},&hellip;,\mu_{K}$ and the optimal assignments for each example</li>
+<li>Compute the cost function (distortion):<ol>
+<li>$J(c^{(1)},&hellip;,c^{(m)}; \mu_{1},&hellip;,\mu_{K}) = (1/m) * \sum_{i=1}^{m} \lVert x^{(i)}-\mu_{c^{(i)}} \rVert^{2}$</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Among the Q costs calculated in 1., pick the assignments $c^{(1)}, c^{(2)},&hellip;,c^{(m)}$ and set of cluster centroids $\mu_{1}, \mu_{2},&hellip;,\mu_{K}$ that have the lowest cost.</li>
+</ol></article></body></html>

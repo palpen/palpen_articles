@@ -10,10 +10,7 @@ Week 8 covers materials on unsupervised learning, which are learning algorithms 
 
 # K-means clustering
 
-[Click here]({{site.url}}/2017/07/13/Intro-to-Machine-Learning-Week-1.html) for the initial blog post on this series of lectures notes for the course
-
-<a href="{{site.url}}/2017/07/13/Intro-to-Machine-Learning-Week-1.html">Click here</a> for the initial blog post on this series of lectures notes for the course
-
+[Click here]({{site.url}}/2017/07/12/Intro-to-Machine-Learning-by-Andrew-Ng.html) for the initial blog post on this series of lectures notes for the course
 
 K-means clustering is an algorithm for detecting clusters or groups in your data. The K refers to the predetermined number of clusters that you want to detect in your data. It is an unsupervised learning algorithm because it doesn't require your examples to have labels to detect the clusters. Some application of the K-means algorithm given in the course include market segmentation and social network analysis. Perhaps it can also be used to identify categories in your data in order to label them.
 
