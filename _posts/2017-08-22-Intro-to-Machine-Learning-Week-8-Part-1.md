@@ -12,7 +12,7 @@ Week 8 covers materials on unsupervised learning, which are learning algorithms 
 
 **[Click here]({{site.url}}/2017/07/12/Intro-to-Machine-Learning-by-Andrew-Ng.html) for the initial blog post on this series**
 
-K-means clustering is an algorithm for detecting clusters or groups in your data. The K refers to the predetermined number of clusters that you want to detect in your data. It is an unsupervised learning algorithm because it doesn't require your examples to have labels to detect the clusters. Some application of the K-means algorithm given in the course include market segmentation and social network analysis. Perhaps it can also be used to identify categories in your data in order to label them.
+K-means clustering is an algorithm for detecting clusters or groups in your data. The K refers to the predetermined number of clusters that you want to detect in your data. It is an unsupervised learning algorithm because it doesn't require your examples to have labels to detect the clusters. Some application of the K-means algorithm given in the course include market segmentation and social network analysis. Perhaps it can also be used to identify categories in your data in order to label them to be used in a supervised learning algorithm.
 
 The goal is to get from data that look like this
 
@@ -27,14 +27,14 @@ to data where groups are clearly identified
 </a>
 
 
-In the example above, it is easy enough to see that there are two clusters. But with data with a much larger set of features, it is harder to see. It is also not always the case that data organize themselves into obvious clusters
+In the example above, it is easy enough to see that there are two clusters. But for data with a much larger set of features, it is impossible to visualize the various data points. It is also common for data to not organize themselves into obvious clusters. An example of this is in the figure below:
 
 <a href="{{site.url}}/img/wk8_3.png">
 <img src="{{site.url}}/img/wk8_3.png" width="275" height="250"/>
 </a>
 
 
-This is where a systematic approach for detecting clusters, which is what the K-means algorithm does, is useful.
+One may want to segment the market by some combination of height and weight. In this example, we may want to produce three sizes of t-shirts: small, medium and large. This is where a systematic approach for detecting clusters, which is what the K-means algorithm does, is useful.
 
 ### The K-means clustering algorithm
 
