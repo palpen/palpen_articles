@@ -12,13 +12,16 @@ To reduce the dimension of data, PCA exploits the correlation among the various 
 
 INSERT IMAGE PILOT SKILL / PILOT ENJOYMENT
 
-The PCA algorithm 
+More technically, the PCA algorithm finds a lower dimensional vector that spans a hyperplane onto which each data point is projected. In the 2-dimensional example using the pilot data above, PCA looks for the vector that spans a line. In 3-dimension, it looks for the vectors that span a 2-dimensional hyperplane. In both cases, the "best" vectors spanning these lower dimensional hyperplanes minimizes the sum of the squared projection error (this is defined as the length of the vectors orthogonal to the hyperplanes pointing to each data point).
+
+INSERT IMAGE PROJECTION VECTOR
 
 
+Based on this description, there are two things that must be calculated: (1) the vectors spanning the lower dimensional hyperplane and (2) the projected values of each feature onto this hyperplane.
+
+Here is the math:
 
 
-* find the k vectors that minimize the projection error that *span* the hyperplane onto which the data will be projected
-* 
 
 
 ## Choosing the number of principal components
